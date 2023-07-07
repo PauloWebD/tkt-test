@@ -1,0 +1,52 @@
+#philter-sector {
+    margin: 10px 0;
+}
+
+.list-company {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: solid grey 1px;
+    border-radius: 4px;
+    height: 65px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: grey;
+    margin: 10px auto;
+}
+
+#philter-sector, .list-company, .list-header {
+    width: 95%;
+}
+
+.list-company div, .list-header div {
+    width: 33%;
+}
+
+.name, .siren {
+    font-weight: bold;
+}
+
+.list-company .button-sector {
+    background: blue;
+    color: white;
+    width: 56%;
+    padding: 5px;
+    border-radius: 5px;
+    margin: auto;
+}
+
+@media (min-width: 600px) {
+    #philter-sector, .list-company, .list-header {
+        width: 53%;
+    }
+    
+}
