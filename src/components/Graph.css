@@ -1,0 +1,13 @@
+.header-graph {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    justify-content: space-around;
+}
+
+.infos-graph {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}

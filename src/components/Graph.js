@@ -2,6 +2,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import { fetchBusinessById } from '../api';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import icon from '../assets/icon.svg'
+import './Graph.css';
 
 export default function Graph() {
     const { name, siren, results } = useParams();
@@ -142,9 +145,20 @@ export default function Graph() {
     }
 
     return (
+        
         <div>
-                <p>{name}</p>
-                <p>{siren}</p>
+            <div className='header-graph'>
+                <div>
+                    
+                <Link to="/">
+                    <img alt='Back Button' src={icon}/>
+                </Link>
+                </div>
+                <div className='infos-graph'>
+                    <h4>{name}</h4>
+                    <p>N° SIREN {siren}</p>
+                </div>
+            </div>
             <div>
                 <canvas ref={chart1Ref} />
                 <canvas ref={chart2Ref} />
