@@ -9,7 +9,7 @@ export default function App() {
     <div className="App">
       <Router>
         <Routes>
-        <Route path="/graph/:id/:name/:siren" element={<Graph />} />
+          <Route path="/graph/:id/:name/:siren/:results" element={<Graph />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>

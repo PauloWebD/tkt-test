@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchBusinessData, fetchBusinessById } from '../api';
+import { fetchBusinessData } from '../api';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -18,11 +18,12 @@ export default function Home() {
     setSector(event.target.value);
   };
 
-  const handleItemClick = async (id, name, siren) => {
+  const handleItemClick = async (id, name, siren, results) => {
+    const resultsString = JSON.stringify(results);
     try {
-        navigate(`/graph/${id}/${name}/${siren}`);
+        navigate(`/graph/${id}/${name}/${siren}/${resultsString}`);
     } catch (error) {
-      // Gérer l'erreur ici
+      console.log(error);
     }
   };
 
@@ -32,7 +33,7 @@ export default function Home() {
         const business = await fetchBusinessData();
         setBusinessData(business);
       } catch (error) {
-        // Gérer l'erreur ici
+        console.log(error);
       }
     };
 
@@ -82,7 +83,7 @@ export default function Home() {
             <li 
                 className='list-company' 
                 key={data.id} 
-                onClick={() => handleItemClick(data.id, data.name, data.siren)}
+                onClick={() => handleItemClick(data.id, data.name, data.siren, data.results)}
             >
                 <div className='name'>
                     {data.name}
